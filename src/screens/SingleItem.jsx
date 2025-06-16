@@ -11,6 +11,7 @@ const SingleItem = ({ item, goToDetailPage }) => {
     return (
         <View style={{
             borderWidth: 1,
+            borderColor: '#e5e7eb',
             marginBottom: 20,
             padding: 15,
             width: 300,

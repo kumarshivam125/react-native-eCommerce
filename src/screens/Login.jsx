@@ -37,41 +37,6 @@ export default function Login({ navigation,setIsAuthenticated }) {
         catch (err) {
             console.log("Error in Login", err)
         }
-        // try {
-        //     // Replace this with your actual login API call
-        //     const response = await fetch('YOUR_API_URL/login', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             email: email.toLowerCase(),
-        //             password,
-        //         }),
-        //     });
-
-        //     const data = await response.json();
-
-        //     if (response.ok) {
-        //         // Store the token
-        //         await AsyncStorage.setItem('userToken', data.token);
-        //         await AsyncStorage.setItem('userData', JSON.stringify(data.user));
-
-        //         // Navigate to main app (this will trigger re-render)
-        //         // navigation.reset({
-        //         //     index: 0,
-        //         //     routes: [{ name: 'Main' }],
-        //         // });
-        //         navigation.replace('Main');
-        //     }
-        //     else {
-        //         Alert.alert('Login Failed', data.message || 'Invalid credentials');
-        //     }
-        // }
-        // catch (error) {
-        //     Alert.alert('Error', 'Network error. Please try again.');
-        //     console.error('Login error:', error);
-        // }
         setIsLoading(false);
     };
 

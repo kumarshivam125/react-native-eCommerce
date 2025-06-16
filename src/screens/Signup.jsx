@@ -34,30 +34,16 @@ export default function Signup({ setIsAuthenticated, navigation }) {
             Alert.alert('Error', 'Please fill in all fields');
             return false;
         }
-
         if (password !== confirmPassword) {
             Alert.alert('Error', 'Passwords do not match');
             return false;
         }
-
-        // if (password.length < 6) {
-        //     Alert.alert('Error', 'Password must be at least 6 characters');
-        //     return false;
-        // }
-
-        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        // if (!emailRegex.test(email)) {
-        //     Alert.alert('Error', 'Please enter a valid email address');
-        //     return false;
-        // }
-
         return true;
     };
 
     const handleSignup = async () => {
         console.log("SIGNUP handler called");
         if (!validateForm()) return;
-
         setIsLoading(true);
         try {
             try {
@@ -77,27 +63,6 @@ export default function Signup({ setIsAuthenticated, navigation }) {
             catch (err) {
                 console.log("Error in account Creation", err)
             }
-            // if (response.ok) {
-            //     // Store the token
-            //     await AsyncStorage.setItem('userToken', data.token);
-            //     await AsyncStorage.setItem('userData', JSON.stringify(data.user));
-
-            //     Alert.alert('Success', 'Account created successfully!', [
-            //         {
-            //             text: 'OK',
-            //             onPress: () => {
-            //                 // navigation.reset({
-            //                 //     index: 0,
-            //                 //     routes: [{ name: 'Main' }],
-            //                 // });
-            //                 navigation.replace('Main');
-            //             },
-            //         },
-            //     ]);
-            // } 
-            // else {
-            //     Alert.alert('Signup Failed', data.message || 'Failed to create account');
-            // }
         }
         catch (error) {
             Alert.alert('Error', 'Network error. Please try again.');
@@ -176,7 +141,6 @@ export default function Signup({ setIsAuthenticated, navigation }) {
     );
 }
 
-// Same styles as LoginScreen...
 const styles = StyleSheet.create({
     container: {
         flex: 1,
