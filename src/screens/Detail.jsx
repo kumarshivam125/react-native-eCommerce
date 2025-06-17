@@ -9,7 +9,8 @@ const Detail = ({ route }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={styles.container}>
         <Image
-          source={{ uri: image }}
+          // source={{ uri: image }}
+          source={image}
           style={{ width: 300, height: 300, borderRadius: 20, borderWidth: 1 }}
         />
         <Text style={{ fontWeight: '900', fontSize: 25 }}>{title}</Text>

@@ -169,7 +169,8 @@ function App(): React.JSX.Element {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const token = await AsyncStorage.getItem('userToken');
+        const token =await AsyncStorage.getItem('userToken');
+        console.log("USER TOKEN IN app.jsx",token)
         if (token) setIsAuthenticated(true);
       }
       catch (error) {

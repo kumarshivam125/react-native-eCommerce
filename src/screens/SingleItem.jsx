@@ -22,7 +22,9 @@ const SingleItem = ({ item, goToDetailPage }) => {
             backgroundColor: '#F2FCFB'
         }}>
             <Image
-                source={{ uri: item.image }}
+                // source={{ uri: item.image }}
+                // source={require('../assets/user.webp')}
+                source={item.image}
                 style={{ width: 120, height: 150, borderRadius: 10 }}
             />
             <View style={{ backgroundColor: '', maxWidth: 150, flex: 1, gap: 10, alignItems: 'center' }}>

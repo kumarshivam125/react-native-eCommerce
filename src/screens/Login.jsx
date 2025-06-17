@@ -28,7 +28,7 @@ export default function Login({ navigation,setIsAuthenticated }) {
             console.log("LOGIN Response--", data);
             if (data.success){
                 await AsyncStorage.setItem('userData', JSON.stringify(data.user));
-                await AsyncStorage.setItem('userToken', JSON.stringify("HEllo"));
+                await AsyncStorage.setItem('userToken', JSON.stringify(data.token));
                 setIsAuthenticated(true);
             }
             else

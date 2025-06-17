@@ -10,11 +10,11 @@ const Profile = ({ setIsAuthenticated }) => {
     Toast.show({ type: 'success', text1: 'Logged Out Successfully', })
     let keys = await AsyncStorage.getAllKeys();
     console.log("LOG OUT page-- ALL KEYS Before-",keys);
-    await AsyncStorage.clear();
-    // await AsyncStorage.removeItem('userData');
-    keys = await AsyncStorage.getAllKeys();
-    console.log("LOG OUT page-- ALL KEYS after-",keys);
-    // console.log("LOG OUT page-- KEY/VALUE pair -",AsyncStorage.multiGet(keys));
+    // await AsyncStorage.clear();
+    // // await AsyncStorage.removeItem('userData');
+    // keys = await AsyncStorage.getAllKeys();
+    // console.log("LOG OUT page-- ALL KEYS after-",keys);
+    console.log("LOG OUT page-- KEY/VALUE pair -",AsyncStorage.multiGet(keys));
     await AsyncStorage.removeItem("userToken");
     setIsAuthenticated(false);
   };

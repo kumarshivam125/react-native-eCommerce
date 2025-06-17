@@ -12,8 +12,28 @@ import SingleItem from './SingleItem';
 // import arr1 from '../../data';
 import { setCart, setCatalog } from '../redux/cartSlice';
 import { setUser } from '../redux/userSlice';
-
-
+const images = [
+  require('../assets/img1.jpg'),
+  require('../assets/img2.jpg'),
+  require('../assets/img3.jpg'),
+  require('../assets/img4.jpg'),
+  require('../assets/img5.jpg'),
+  require('../assets/img6.jpg'),
+  require('../assets/img7.jpg'),
+  require('../assets/img8.jpg'),
+  require('../assets/img9.jpg'),
+  require('../assets/img10.jpg'),
+  require('../assets/img11.jpg'),
+  require('../assets/img12.jpg'),
+  require('../assets/img13.jpg'),
+  require('../assets/img14.jpg'),
+  require('../assets/img15.jpg'),
+  require('../assets/img16.jpg'),
+  require('../assets/img17.jpg'),
+  require('../assets/img18.jpg'),
+  require('../assets/img19.jpg'),
+  require('../assets/img20.jpg'),
+];
 
 const Main = ({ navigation }) => {
   const { catalog } = useSelector(state => state.cart);
@@ -46,6 +66,7 @@ const Main = ({ navigation }) => {
           newCart.push(one);;
           newCatalog = newCatalog.map(x => x.id == ids[i] ? { ...x, qty: qtys[i] } : x);
         }
+        newCatalog = newCatalog.map((x,ind) => ({ ...x,image:images[ind]}));
         console.log("NEW CART -", newCart);
         console.log("NEW Catalog-", newCatalog);
         dispatch(setUser(x1));

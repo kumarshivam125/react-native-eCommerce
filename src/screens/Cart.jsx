@@ -5,16 +5,24 @@ import { removeFromCart } from '../redux/cartSlice';
 import Toast from 'react-native-toast-message';
 import SingleItem from './SingleItem';
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Cart = ({ navigation }) => {
     const { cart } = useSelector(state => state.cart);
     const [total, setTotal] = useState(0);
-    const {userData}=useSelector(state=>state.user);
     async function updateCart() {
-        const finalCart=cart.map(x=>({id:x.id,qty:x.qty}));
-        console.log("USER DATA",userData)
+        const finalCart = cart.map(x => ({ id: x.id, qty: x.qty }));
         try {
-            const { data } = await axios.post('http://10.190.129.16:4000/updateCart', { email:userData.email,data:finalCart});
+            const token = JSON.parse(await AsyncStorage.getItem("userToken"));
+            console.log("TOKEN in CART-", token);
+
+            const { data } = await axios.post('http://10.190.129.16:4000/updateCart', { data: finalCart },
+                {
+                    headers: {
+                        Authorization: 'Bearer ' + token
+                    }
+                }
+            );
             console.log("CART UPDATE Response--", data);
             // if (data.success) {
             // }
@@ -30,9 +38,9 @@ const Cart = ({ navigation }) => {
         setTotal(sum);
         updateCart();
     }, [cart])
-    // useEffect(()=>{
-    //     console.log("CART from USERDATA--",userData.cart)
-    // },[])
+    // useEffect(() => {
+
+    // }, [])
     const goToHome = () => {
         navigation.navigate('Home');
     };
